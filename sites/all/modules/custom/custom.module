@@ -1,0 +1,106 @@
+<?php
+
+function custom_flickr($sid) {
+    $method = "flickr.photosets.getPhotos";
+    $photo_sid = $sid;
+    $arg = array("photoset_id" => $photo_sid);
+    $rsp_obj = call($method, $arg);
+    foreach ($rsp_obj['photoset']['photo'] as $key => $photo) {
+        $info_photo = photos_getInfo($photo['id']);
+        if (!empty($info_photo['photo']['description'])) {
+            $info_photo['photo']['description'] = "-" . $info_photo['photo']['description'];
+        }
+        print "<a href='" . buildPhotoURL($photo, 'large') . "'><img src='" . buildPhotoURL($photo, 'small') . "' alt='" . $photo['title'] . $info_photo['photo']['description'] . "' ></a>";
+    }
+}
+
+function custom_flickr_primaryphoto($sid) {
+    $method = "flickr.photosets.getPhotos";
+    $photo_sid = $sid;
+    $arg = array("photoset_id" => $photo_sid);
+    $rsp_obj = call($method, $arg);
+    return buildPhotoURL($rsp_obj['photoset']['photo'][0], 'large');
+}
+
+function current_node() {
+
+    if (arg(0) == 'node' && is_numeric(arg(1))) {
+
+        return arg(1);
+    }
+}
+
+//-> Custom Adrian Function
+function buildPhotoURL($photo, $size = "Medium") {
+    //receives an array (can use the individual photo data returned
+    //from an API call) and returns a URL (doesn't mean that the
+    //file size exists)
+    $sizes = array(
+        "square" => "_s",
+        "square_75" => "_s",
+        "square_150" => "_q",
+        "thumbnail" => "_t",
+        "small" => "_m",
+        "small_240" => "_m",
+        "small_320" => "_n",
+        "medium" => "",
+        "medium_500" => "",
+        "medium_640" => "_z",
+        "medium_800" => "_c",
+        "large" => "_b",
+        "large_1024" => "_b",
+        "large_1600" => "_h",
+        "large_2048" => "_k",
+        "original" => "_o",
+    );
+
+    $size = strtolower($size);
+    if (!array_key_exists($size, $sizes)) {
+        $size = "medium";
+    }
+
+    if ($size == "original") {
+        $url = "https://farm" . $photo['farm'] . ".static.flickr.com/" . $photo['server'] . "/" . $photo['id'] . "_" . $photo['originalsecret'] . "_o" . "." . $photo['originalformat'];
+    } else {
+        $url = "https://farm" . $photo['farm'] . ".static.flickr.com/" . $photo['server'] . "/" . $photo['id'] . "_" . $photo['secret'] . $sizes[$size] . ".jpg";
+    }
+    return $url;
+}
+
+function photos_getInfo($photo_id) {
+    $method = "flickr.photos.getInfo";
+    $photo_id = "72157639317498885";
+    $arg = array('photo_id' => $photo_id);
+    $rsp_obj = call($method, $arg);
+    return $rsp_obj;
+}
+
+function call($method, $arg = array()) {
+    //$api_key = "86e5a3351dddf1a71bfe62b8bbe03b21";
+    $api_key = "7eb1e84a844ca5f56399e49f01fa812f";
+    $api_sig = "1b176c872118294505578765ca66fa6a";
+    $command = $method;
+    $format = "php_serial";
+    $params = array(
+        'method' => $command,
+        'api_key' => $api_key,
+        'format' => $format
+    );
+
+    $params = array_merge($params, $arg);
+    $encoded_params = array();
+    foreach ($params as $k => $v) {
+        $encoded_params[] = urlencode($k) . '=' . urlencode($v);
+    }
+
+    $url = "https://api.flickr.com/services/rest/?" . implode('&', $encoded_params);
+
+    $rsp = file_get_contents($url);
+    $rsp_obj = unserialize($rsp);
+    //die(var_dump($url));
+    if ($rsp_obj['stat'] == 'ok') {
+        return $rsp_obj;
+    } else {
+        return false;
+    }
+}

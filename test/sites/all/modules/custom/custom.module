@@ -1,0 +1,34 @@
+<?php
+function custom_flickr($sid){
+    $f = new phpFlickr("7eb1e84a844ca5f56399e49f01fa812f","8d81b9903ec16c2a");
+      $photos = $f->photosets_getPhotos($sid);
+  foreach ($photos['photoset']['photo'] as $key  => $photo) 
+	{
+          $info_photo = $f->photos_getInfo($photo['id']);
+          if(!empty($info_photo['photo']['description'])){
+          $info_photo['photo']['description'] = "-".$info_photo['photo']['description'];}
+	  print "<a href='".$f->buildPhotoURL($photo,'large')."'><img src='".$f->buildPhotoURL($photo,'small')."' alt='".$photo['title'].$info_photo['photo']['description']."' ></a>";          
+        }
+}
+
+
+function custom_flickr_primaryphoto($sid){
+    $f = new phpFlickr("7eb1e84a844ca5f56399e49f01fa812f","8d81b9903ec16c2a");
+      $photos = $f->photosets_getPhotos($sid);
+  
+	  
+	  return  $f->buildPhotoURL($photos['photoset']['photo'][0],'large');
+          
+  
+  
+}
+
+function current_node(){
+    
+    if(arg(0)=='node'&&is_numeric(arg(1))){
+
+        return arg(1);       
+
+     }
+    
+}
