@@ -101,7 +101,6 @@
       
       
     <?php print $messages; ?>
-       
         
 
     <div id="main-wrapper">
@@ -145,7 +144,13 @@
   <?php if (drupal_is_front_page()): ?>
   <div id="background-image-wrapper">
     <div id="background-image">
-      <?php print theme('image', array('path'=>$node_global->field_backgrounds[LANGUAGE_NONE]['0']['uri'], 'height' => null, 'width' => null)) ?>
+      <?php
+
+      $randonnum = rand(0,count($node_global->field_backgrounds[LANGUAGE_NONE]) -1 );
+      $image_back = $node_global->field_backgrounds[LANGUAGE_NONE][$randonnum]['uri'];
+      //print $randomnum;
+      print theme('image', array('path'=>$image_back, 'height' => null, 'width' => null));
+      ?>
     </div>
   </div>
   <?php endif; ?>
