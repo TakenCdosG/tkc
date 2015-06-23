@@ -1,4 +1,0 @@
-name = Custom Flickr Module
-description = Custom Flickr Module
-core = 7.x
-files[] = phpFlickr-3.1/phpFlickr.php
