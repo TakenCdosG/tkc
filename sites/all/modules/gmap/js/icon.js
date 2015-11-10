@@ -59,7 +59,7 @@ Drupal.gmap.getIcon = function (setname, sequence) {
              t.iconAnchor = new GPoint(q.anchorX, q.anchorY);
              t.infoWindowAnchor = new GPoint(q.infoX, q.infoY);
              */
-            p = Drupal.settings.basePath + Drupal.settings.pathPrefix + q.path;
+            p = Drupal.settings.basePath + q.path;
             t = new google.maps.MarkerImage(p + q.sequence[i].f,
                 new google.maps.Size(q.sequence[i].w, q.sequence[i].h),
                 null,
@@ -224,11 +224,11 @@ Drupal.gmap.addHandler('gmap', function (elem) {
         }
     });
 
-    if (!obj.vars.behavior.customicons) {
-        // Provide icons to markers.
-        obj.bind('preparemarker', function (marker) {
-            marker.opts.icon = Drupal.gmap.getIcon(marker.markername, marker.offset);
-            marker.opts.shadow = Drupal.gmap.getShadow(marker.markername, marker.offset);
-        });
-    }
+    // Provide icons to markers.
+    obj.bind('preparemarker', function (marker) {
+      if (!obj.vars.behavior.customicons || (marker.markername && !marker.opts.icon)) {
+        marker.opts.icon = Drupal.gmap.getIcon(marker.markername, marker.offset);
+        marker.opts.shadow = Drupal.gmap.getShadow(marker.markername, marker.offset);
+      }
+    });
 });
