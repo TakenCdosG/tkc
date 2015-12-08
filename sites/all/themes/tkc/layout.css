@@ -1742,3 +1742,8 @@ margin-bottom: 15px;
     font-size: 20px;
     font-family: "Helvetica Light";
 }
+
+/***************** Footer microformat fix *******************/
+#footer div.section.desktop div, #footer div.section.desktop div p { display: inline; }
+#footer div.section.desktop div br { display: none; }
+
