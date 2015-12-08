@@ -70,3 +70,8 @@
 [30-May-2015 01:42:26 America/Denver] PHP Notice:  Undefined index: url in /home2/thekitf9/public_html/tour.php on line 4
 [19-Jun-2015 08:55:59 America/Denver] PHP Warning:  shell_exec(): Unable to execute 'checksuexec '/home2/thekitf9/public_html/includes/rtl.php'' in /home2/thekitf9/public_html/500.php on line 13
 [19-Jun-2015 08:56:04 America/Denver] PHP Warning:  shell_exec(): Unable to execute 'checksuexec '/home2/thekitf9/public_html/wp-admin/css/css.php'' in /home2/thekitf9/public_html/500.php on line 13
+[25-Jun-2015 12:35:28 America/Denver] PHP Notice:  Undefined index: w in /home2/thekitf9/public_html/tour.php on line 2
+[25-Jun-2015 12:35:28 America/Denver] PHP Notice:  Undefined index: h in /home2/thekitf9/public_html/tour.php on line 3
+[01-Dec-2015 13:42:10 America/Denver] PHP Notice:  Undefined index: w in /home2/thekitf9/public_html/tour.php on line 2
+[01-Dec-2015 13:42:10 America/Denver] PHP Notice:  Undefined index: h in /home2/thekitf9/public_html/tour.php on line 3
+[01-Dec-2015 13:42:10 America/Denver] PHP Notice:  Undefined index: url in /home2/thekitf9/public_html/tour.php on line 4

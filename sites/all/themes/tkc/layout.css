@@ -1742,3 +1742,8 @@ margin-bottom: 15px;
     font-size: 20px;
     font-family: "Helvetica Light";
 }
+
+/* White Bckground Mail */
+div.mailmunch-popover-iframe-scaler{
+    background-color:#ffffff
+}
