@@ -1747,3 +1747,7 @@ margin-bottom: 15px;
 div.mailmunch-popover-iframe-scaler{
     background-color:#ffffff
 }
+
+/***************** Footer microformat fix *******************/
+#footer div.section.desktop div, #footer div.section.desktop div p { display: inline; }
+#footer div.section.desktop div br { display: none; }
