@@ -24,13 +24,13 @@
               </a>
             </li>
               <li class="twitter">
-                  <a href="https://twitter.com/TKC1953" target="_blank">
+                  <a href="<?php print $node_global->field_twitter_link[LANGUAGE_NONE][0]['url']; ?>" target="_blank">
                       <img src="<?php print base_path().path_to_theme().'/images/twitter_icon.jpg' ?>"/>
                   </a>
               </li>
             
             <li class="pinterest">
-              <a href="https://twitter.com/TKC1953" target="_blank">
+              <a href="<?php print $node_global->field_pinterest_link[LANGUAGE_NONE][0]['url']; ?>" target="_blank">
                 <img src="<?php print base_path().path_to_theme().'/images/pinterest_icon.png' ?>"/>
               </a>
             </li>
