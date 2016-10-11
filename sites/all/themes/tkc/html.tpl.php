@@ -72,7 +72,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 })();
 
 </script>
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <!-- MailMunch for http://www.thekitchencompany.com/ -->
 <!-- Paste this code right before the </head> tag on every page of your site. -->
 <script src="//s3.amazonaws.com/mailmunch/static/site.js" id="mailmunch-script" data-mailmunch-site-id="90208" async="async"></script>

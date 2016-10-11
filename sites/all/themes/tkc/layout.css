@@ -1752,3 +1752,10 @@ div.mailmunch-popover-iframe-scaler{
 #footer div.section.desktop>div, #footer div.section.desktop>p { display: inline-block; }
 #footer div.section.desktop div p { display: inline; }
 #footer div.section.desktop div br { display: none; }
+
+#cname-error{
+    color: red;
+    font-style: italic;
+    line-height: 1.8;
+    font-size: 14px;
+}

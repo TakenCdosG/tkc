@@ -1,5 +1,70 @@
 <?php
 
+// coge la librería recaptcha
+require_once "recaptchalib.php";
+
+/**
+ * Implements hook_menu().
+ */
+function custom_menu() {
+    $items = array();
+    $items['schedule_an_consultation'] = array(
+        'title' => '',
+        'type' => MENU_CALLBACK,
+        'page callback' => 'custom_page_createsend',
+        'page arguments' => array(),
+        'access arguments' => array('access content'),
+    );
+    return $items;
+}
+
+function custom_page_createsend(){
+
+    // tu clave secreta
+    $secret = "6LdZyiYTAAAAADs8Q-Ruat3o8j7A1h2LeCX2Yo2j";
+    // respuesta vacía
+    $response = null;
+    // comprueba la clave secreta
+    $reCaptcha = new ReCaptcha($secret);
+    $spam = FALSE;
+    // si se detecta la respuesta como enviada
+    if ($_POST["g-recaptcha-response"]) {
+        $response = $reCaptcha->verifyResponse(
+            $_SERVER["REMOTE_ADDR"],
+            $_POST["g-recaptcha-response"]
+        );
+        if ($response != null && $response->success) {
+
+        }else{
+            $spam = TRUE;
+        }
+    }else{
+        $spam = TRUE;
+    }
+
+    if(!$spam){
+        $url = "http://thinkcreativegroup.createsend.com/t/y/s/cdlulr/";
+        $headers = array('Content-Type' => 'application/x-www-form-urlencoded'); 
+        $data = array();   
+        foreach ($_POST as $key => $value) {
+            $data[$key] = $value;
+        }
+        $data['action'] = $action; 
+        $options = array(
+            'headers' => $headers,
+            'method' => 'POST',
+            'data' => http_build_query($data),
+        );     
+        $response = drupal_http_request($url, $options );   
+        echo $response->data;
+        exit; 
+    }else{
+        drupal_access_denied();
+    }
+    // dpm($response);
+    // dpm($_POST);
+}
+
 function custom_flickr($sid) {
     $method = "flickr.photosets.getPhotos";
     $photo_sid = $sid;
