@@ -944,10 +944,15 @@ a{
 .content.bottom{
     margin-bottom:75px !important;
 }
-.node-project-gallery .content, .node-category-gallery .content, .node-gallery-landing .content{
+.node-category-gallery .content, .node-gallery-landing .content{
     width:100%;
     max-width:966px;
     margin:0 auto 15px;
+}
+.node-project-gallery .content{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto 15px;    
 }
 .node-project-gallery ul.content,.node-category-gallery ul.content, .node-gallery-landing ul.content{
     padding:0;
@@ -956,7 +961,7 @@ a{
     color:#593f1d;
 }
 .node-project-gallery h3{
-    margin:0 0 15px 65px;
+    margin:0 0 15px 30px;
     color:#593f1d !important;
 }
 .node-category-gallery li.field{
@@ -1574,8 +1579,9 @@ tag{
     }
 
     .fotor, .fotorama__wrap{
-        height: 500px;
+        /*height: 500px;*/
     }
+    
     #header-image-mobile  {
         display: block;
     }
