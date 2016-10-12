@@ -28,14 +28,15 @@
                         }
                     }
                 </script>
-                <select onchange="navigateTo(this, 'window', false)" name="gallery_list" form="gallery_list">         
+                <select onchange="navigateTo(this, 'window', false)" name="gallery_list" form="gallery_list">
+                  <option>Kitchen Styles</option>
                   <?php
                     $nodes = node_load_multiple(NULL, array("title" => "Gallery", "type" => "gallery_landing"));
                     $nodenid = current($nodes);
                     $node = node_load($nodenid->nid);
                     $nodos = $node->field_categories['und'];
                     foreach ($nodos as $nodo) {
-                        //$nodeurl = url('node/'. $nodo['nid']); 
+                        $nodeurl = url('node/'. $nodo['nid']); 
                         $title = node_load($nodo['nid']);
                         print '<option value="'.$nodeurl.'">'. $title->title .'</option>';
                     }
