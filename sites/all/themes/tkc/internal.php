@@ -15,7 +15,34 @@
       <?php print render($page['help']); ?>
       <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
       <?php print $breadcrumb; ?> 
-          <?php print render($page['content']); ?>
+      <?php if ($node->type == 'project_gallery'): ?>
+      <div class="gallery_list_select">
+          <div>
+                <script type="text/javascript">
+                    function navigateTo(sel, target, newWindow) {
+                        var url = sel.options[sel.selectedIndex].value;
+                        if (newWindow) {
+                            window.open(url, target, '--- attributes here, see below ---');
+                        } else {
+                            window[target].location.href = url;
+                        }
+                    }
+                </script>
+                <select onchange="navigateTo(this, 'window', false)" name="gallery_list" form="gallery_list">         
+                  <?php
+                    $node = node_load(148);
+                    $nodos = $node->field_categories['und'];
+                    foreach ($nodos as $nodo) {
+                        //$nodeurl = url('node/'. $nodo['nid']); 
+                        $title = node_load($nodo['nid']);
+                        print '<option value="'.$nodeurl.'">'. $title->title .'</option>';
+                    }
+                  ?>  
+                </select>   
+          </div>
+      </div>
+      <?php endif; ?>
+        <?php print render($page['content']); ?>
       <?php print $feed_icons; ?>
   </div>
 </div> <!-- /.section, /#content -->
