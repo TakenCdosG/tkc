@@ -15,7 +15,7 @@
       <?php print render($page['help']); ?>
       <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
       <?php print $breadcrumb; ?> 
-      <?php if ($node->type == 'project_gallery'): ?>
+      <?php if ($node->type == 'project_gallery' or $node->type == 'category_gallery'): ?>
       <div class="gallery_list_select">
           <div>
                 <script type="text/javascript">
@@ -30,7 +30,9 @@
                 </script>
                 <select onchange="navigateTo(this, 'window', false)" name="gallery_list" form="gallery_list">         
                   <?php
-                    $node = node_load(148);
+                    $nodes = node_load_multiple(NULL, array("title" => "Gallery", "type" => "gallery_landing"));
+                    $nodenid = current($nodes);
+                    $node = node_load($nodenid->nid);
                     $nodos = $node->field_categories['und'];
                     foreach ($nodos as $nodo) {
                         //$nodeurl = url('node/'. $nodo['nid']); 
