@@ -124,7 +124,10 @@
 }
 
 html, body, #page-wrapper, #page{
-    /*   height: 100%;*/
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 html,body{
     height: 100%;
@@ -169,34 +172,55 @@ body{
 
 /*HOME PAGEE*/
 body.front #main{
+    /*
     margin: 0 auto 111px auto;
+    */
     max-width: 1000px;
+    margin: auto;
+    display: block;
+    position: relative;
+    clear: both;
     /*min-width: 394px;*/
 }
 
 body.front #main-wrapper{
-
+    position: absolute;
+    display: block;
+    width: 100%;
+    bottom: 100px;
+    clear: both;
+    background: none;
 }
 
 body.front #main-wrapper .node .content, .home-regular{
+    /*
     border-top: 1px dashed #b4b1af;
     border-bottom: 1px dashed #b4b1af;
     font-family: "Helvetica Light";
     overflow: auto;
     width: 100%;
-    position:relative;
+    position:relative;  
+    max-height: 128px;
+    */
+    border-top: 1px dashed #b4b1af;
+    border-bottom: 1px dashed #b4b1af;
+    font-family: "Helvetica Light";
+    overflow: auto;
+    width: 100%;
+    position: relative;
 }
 
 body.front .node .field-name-body, .home-regular{
-    /*width: 430px;*/
-    width: 43%;
-    /*padding: 0 35px;*/
-    padding: 3% 3.5% 3% 3.5%;
+    width: 50%;
+    padding: 2.3% 2% 2% 2%;
     color: #593f1d;
-    font-size: 18px;
-    line-height: 32px;
+    font-size: 15px;
+    line-height: 20px;
     float: left;
+    margin: auto;
+    display: block;
 }
+
 .brown-text{
     color: #593f1d;
 font-family: "Helvetica Light";
@@ -211,9 +235,11 @@ font-family: "Helvetica Light";
 .widgets_bar{
     text-align: center;
     float: right;
-    width: 35%;
-    margin-right: 7.7%;
-    margin-top: 18px;
+    /*width: 35%;*/
+    margin-right: 8.7%;
+    margin-top: 3px;
+    width: auto;
+    max-width: 35%;
 }
 
 .widgets_bar .widget_1 a{
@@ -225,16 +251,29 @@ font-family: "Helvetica Light";
     text-decoration: none;
 }
 .widgets_bar .widget_1{
+    /*
     font-family: "League Gothic";
     font-size: 54.2px;
     color: #deab51;
     border-bottom: 1px dashed black;
+    */
+    font-family: "League Gothic";
+    font-size: 40px;
+    color: #deab51;
+    border-bottom: 1px dashed black;
+    line-height: 48px;
 }
 
 .widgets_bar .widget_2{
+    /*
     font-family: "League Gothic";
     font-size: 54.2px;
     color: #829c95;
+    */
+    font-family: "League Gothic";
+    font-size: 40px;
+    color: #829c95;
+    line-height: 48px;
 }
 
 /*INTERNAL WIDGETS*/
@@ -641,6 +680,13 @@ a{
     font-family: Arial;
     font-size: 13px;
     color: #593f1d;
+    position: absolute;
+    display: block;
+    width: 100%;
+    bottom: 0px;
+    clear: both;
+    margin: auto;
+    padding: 0px;
 }
 
 #footer p{
@@ -877,6 +923,7 @@ a{
 
 .not-front #footer{
     border-top: 1px dashed #b6a9a4;
+    position: relative;
 }
 
 .node-type-page .node-full{
@@ -1675,8 +1722,48 @@ body .field-collection-container ul.action-links-field-collection-add{
     padding-left: 10px;    
 }
 
-#node-32 input{
+#node-32 input[type='text']{
     width: 230px;
+}
+
+#node-32 textarea{
+    width: 600px;
+    height: 200px;
+}
+
+.checkbox-inline label,.checkbox-inline input{
+    float: left;
+}
+
+.checkbox-inline label{
+    width: 80px;
+}
+
+#node-32 .error {
+    color: #8c2e0b;
+    clear: both;
+    margin-top: 15px;
+    float: left;
+}
+#node-32 .g-recaptcha{
+        float: left;
+    clear: both;
+}
+
+#node-32 button[type='submit']{
+    float: left;
+    clear: both;
+    margin-top: 15px;
+}
+
+.checkbox-inline input{
+    top: 5px;
+    position: relative;
+}
+
+.clear-both{
+    clear: both;
+    width: 100%;
 }
 
 .content_form{
@@ -1766,6 +1853,7 @@ margin-bottom: 15px;
     width: 100%;
     text-align: center;
 }
+
 
 
 /**** NAVITAGION MOBILE ****/

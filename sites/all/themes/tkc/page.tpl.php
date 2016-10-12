@@ -118,38 +118,24 @@
       <div class="section mobile">
         <?php print $node_global->field_footer_text_mobile[LANGUAGE_NONE]['0']['safe_value']; ?>
       </div>
-      <div class="logos">
-        <?php //die(var_dump($logos)); ?>
-        <?php foreach($logos as $key=>$logo): ?>
-           <?php foreach($logo as $logo_obj): ?>
-             <a href="<?php print $logo_obj->field_logo_link[LANGUAGE_NONE][0]['url']?>" title="<?php print $logo_obj->field_logo_link[LANGUAGE_NONE][0]['title']?>" target="_blank">
-                <div class="logo <?php print (count($logos) == $key +1)?'last':''; ?>">
-                  <div class="gray-logo">
-                    <?php print theme_image_style(array('style_name'=>'logo_gray', 'path'=>$logo_obj->field_logo_image[LANGUAGE_NONE][0]['uri'], 'height' => null, 'width' => null)) ?>
-                  </div>
-                  <div class="color-logo">
-                    <?php print theme('image', array('path'=>$logo_obj->field_logo_image[LANGUAGE_NONE][0]['uri'], 'height' => null, 'width' => null)) ?>
-                  </div>
-                </div>
-              </a>
-           <?php endforeach; ?>
-          
-         <?php //die(var_dump($logo[1]->field_logo_link[LANGUAGE_NONE][0]['url'])); ?>
-        <?php endforeach; ?>
-      </div>
     </div> <!-- /.section, /#footer -->
 
   </div>
   </div> <!-- /#page, /#page-wrapper -->
   <?php if (drupal_is_front_page()): ?>
   <div id="background-image-wrapper">
-    <div id="background-image">
+    <div id="background-image" class="fotorama" data-width="100%" data-ratio="1280/760" data-max-width="100%" data-autoplay="true">
       <?php
-
-      $randonnum = rand(0,count($node_global->field_backgrounds[LANGUAGE_NONE]) -1 );
-      $image_back = $node_global->field_backgrounds[LANGUAGE_NONE][$randonnum]['uri'];
-      //print $randomnum;
-      print theme('image', array('path'=>$image_back, 'height' => null, 'width' => null));
+        /*
+          $randonnum = rand(0,count($node_global->field_backgrounds[LANGUAGE_NONE]) -1 );
+          $image_back = $node_global->field_backgrounds[LANGUAGE_NONE][$randonnum]['uri'];
+          print theme('image', array('path'=>$image_back, 'height' => null, 'width' => null));
+        */
+        $backgrounds = isset($node_global->field_backgrounds['und'])?$node_global->field_backgrounds['und']:array();
+        foreach ($backgrounds as $key => $background){
+          $image_back = $background['uri'];
+          print theme('image', array('path'=>$image_back, 'height' => null, 'width' => null));
+        }
       ?>
     </div>
   </div>
@@ -337,7 +323,7 @@ return(n_width);
 
         if($('#background-image img').height() < $('#page').height()){
           $('#background-image img').css({'height': '100%', 'width': 'auto'});
-          $('#background-image').css({position: 'relative', left: -($('#background-image img').width()/2-$('#page-wrapper').width()/2)});
+          // $('#background-image').css({position: 'relative', left: -($('#background-image img').width()/2-$('#page-wrapper').width()/2)});
         }
      }
 
@@ -346,7 +332,7 @@ return(n_width);
      function resizeFooter(){
        $('#footer').height('auto'); 
        if($('#footer').offset().top + $('#footer').outerHeight(true) < $(window).height()){
-         $('#footer').height($(window).height()-$('#footer').offset().top);
+         // $('#footer').height($(window).height()-$('#footer').offset().top);
        } else {
          
        }
