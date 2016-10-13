@@ -1059,6 +1059,9 @@ div.fotorama__wrap--slide.fotorama__wrap--no-controls .fotorama__arr.fotorama__a
         padding: 0;
         margin-bottom: 50px;
     }
+    .gallery_list_select div{
+        top:0px;
+    }
 }
 /*THE HIDDEN MENU*/
 
