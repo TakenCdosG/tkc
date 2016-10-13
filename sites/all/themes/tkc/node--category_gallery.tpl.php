@@ -30,7 +30,7 @@
             print "<li class='field'><a href='/node/".drupal_get_path_alias($nodo->nid)."'>";
                     print "<div class='photo'>";
                     $url = $nodo->field_images['und'][0]['uri'];
-                    print   "<div class='img_container'><img src='" . file_create_url($url) . "' alt='" . $image['title'] . "' ></div>";
+                    print "<div class='img_container' style='background-image: url(" . file_create_url($url) . ")'></div>";
                     print "</div>";
                     print "<div id='photo_title'>".$nodo->title."</div>";
             print "</a></li>";
