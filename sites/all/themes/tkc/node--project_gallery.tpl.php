@@ -15,7 +15,7 @@
   <?php endif; ?>
 
   <div class="content bottom"<?php print $content_attributes; ?>>
-      <h3><?php print_r($title); ?></h3> 
+      <!-- <h3><?php print_r($title); ?></h3> -->
       <div class="body"><?php print($body[0]['value']); ?></div>
     <?php
       // We hide the comments and links now so that we can render them later.
