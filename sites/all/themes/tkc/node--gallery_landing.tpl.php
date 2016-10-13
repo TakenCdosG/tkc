@@ -29,11 +29,11 @@
             print "<li class='field'><a href='/node/".drupal_get_path_alias($nodo->nid)."'>";
                     print "<div class='photo'>";
                     $url = $nodo->field_category_image['und'][0]['uri'];
-                    print "<div class='img_container' style='background-image: url(" . file_create_url($url) . ")'></div>";
+                    $variables = array('style_name'=>'gallerylanding','path'=>$url);                    
+                    print "<div class='img_container' style='background-image: url(" . image_style_url($variables['style_name'], $variables['path']) . ")'></div>";
                     print "</div>";
                     print "<div id='photo_title'>".$nodo->title."</div>";
-            print "</a></li>";
-             
+            print "</a></li>";    
       }
       print "</ul>";
       print "</div>";

@@ -27,9 +27,8 @@
   $images = $node->field_images[und];
   foreach($images as $image){
       $url = $image['uri'];
-      print "<a href='". file_create_url($url) ."'><img src='" . file_create_url($url) . "' alt='" . $image['title'] . "' ></a>";
-      
-    
+      $variables = array('style_name'=>'projectgallery','path'=>$url);
+      print theme_image_style($variables );  
   }
   ?>
     </div>
