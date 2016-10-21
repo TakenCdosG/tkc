@@ -15,8 +15,6 @@
   <?php endif; ?>
 
   <div class="content bottom"<?php print $content_attributes; ?>>
-      <!-- <h3><?php print_r($title); ?></h3> -->
-      <div class="body"><?php print($body[0]['value']); ?></div>
     <?php
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
@@ -24,10 +22,10 @@
     ?>
 <div class="fotor" data-maxwidth="1200" data-maxheight="800" data-width="100%" data-keyboard="true" data-fit="cover" data-thumbs="false">
   <?php
-  $images = $node->field_images[und];
+  $images = $node->field_images['und'];
   foreach($images as $image){
       $url = $image['uri'];
-      $variables = array('style_name'=>'projectgallery','path'=>$url);
+      $variables = array('style_name'=>'projectgallery','path'=>$url, 'width' => NULL,'height' => NULL, );
       print theme_image_style($variables );  
   }
   ?>

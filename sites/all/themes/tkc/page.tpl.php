@@ -1,12 +1,12 @@
-  <?php $node_global = node_load(3)?>
+  <?php $node_global = node_load(3); ?>
   <?php foreach($node_global->field_logos[LANGUAGE_NONE] as $logoItem){
           $logos[] = entity_load('field_collection_item', array($logoItem['value']));
-        };
+        }
   ?>
   <?php $has_header_image = false; 
   $has_header_image_mobile = false; ?>
-  <?php if(isset($node) && property_exists($node, 'field_header_image') && $node->field_header_image['und'][0]['uri']) $has_header_image = true;?>
-<?php if(isset($node) && property_exists($node, 'field_header_image_mobile') && $node->field_header_image_mobile['und'][0]['uri']) $has_header_image_mobile = true;?>
+  <?php if(isset($node) && property_exists($node, 'field_header_image') && !empty($node->field_header_image['und'][0]['uri'])) {$has_header_image = true;} ?>
+  <?php if(isset($node) && property_exists($node, 'field_header_image_mobile') && !empty($node->field_header_image_mobile['und'][0]['uri'])) {$has_header_image_mobile = true;} ?>
   <div id="page-wrapper"><div id="page" class="<?php print !$has_header_image_mobile?'nohas-header-image-mobile ':''; ?>" >
       <div class="top-wrapper <?php print $has_header_image?'has-header-image ':'';  ?>">
     <div id="header"><div class="section clearfix">

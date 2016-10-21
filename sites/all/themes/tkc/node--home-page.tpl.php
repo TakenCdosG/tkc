@@ -18,8 +18,11 @@
 <div style="height:100%;width:100%;background-color:white;opacity: 0.80;position:absolute;  z-index: -10;"></div>
         <div class="image_print">
             <?php
-            $background = '/sites/default/files/' . $field_background_image->field_background_image['und'][0]['filename'];
-            print "<img typeof='foaf:Image' src='$background' width='330' height='246' alt='background'>";
+            if(!empty($field_background_image->field_background_image['und'][0]['filename'])){
+                $background = '/sites/default/files/' . $field_background_image->field_background_image['und'][0]['filename'];
+                print "<img typeof='foaf:Image' src='$background' width='330' height='246' alt='background'>";
+            }
+            
             ?>
         </div>
         <?php
