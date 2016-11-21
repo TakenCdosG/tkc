@@ -49,7 +49,7 @@ function tkc_breadcrumb($variables) {
     // screen-reader users. Make the heading invisible with .element-invisible.
     $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
 
-    $output .= '<div class="breadcrumb">' . implode(' » ', $breadcrumb) . ' » <a href="'.drupal_get_path_alias($node->title).'">'.$node->title.'</a></div>';
+    $output .= '<div class="breadcrumb">' . implode(' » ', $breadcrumb) . ' » <a href="/'.drupal_get_path_alias($node->id).'">'.$node->title.'</a></div>';
     return $output;
   }
   }
