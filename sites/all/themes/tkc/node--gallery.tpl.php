@@ -34,6 +34,6 @@
 </div>
 <script>
   jQuery(function($){
-    $('.fotor').fotorama({nav: "thumbs", zoomToFit:'false', cropToFit: 'true', width: '100%',"ratio":"1920/1053", thumbHeight: '48'});
+    $('.fotor').fotorama({nav: "false", zoomToFit:'false', cropToFit: 'true', width: '100%',"ratio":"1920/1053", thumbHeight: '48'});
   });
 </script>

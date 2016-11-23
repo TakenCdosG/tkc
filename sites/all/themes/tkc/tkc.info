@@ -11,6 +11,7 @@ stylesheets[all][] = js/fotorama/fotorama.css
 stylesheets[print][] = print.css
 stylesheets[all][] = js/Pajinate-master/styles.css
 stylesheets[all][] = fancybox/jquery.fancybox.css
+stylesheets[all][] = responsive.css
 
 
 

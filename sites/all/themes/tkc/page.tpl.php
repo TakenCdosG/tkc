@@ -124,7 +124,7 @@
   </div> <!-- /#page, /#page-wrapper -->
   <?php if (drupal_is_front_page()): ?>
   <div id="background-image-wrapper">
-    <div id="background-image" class="fotorama" data-width="100%" data-ratio="1280/760" data-max-width="100%" data-autoplay="true">
+    <div id="background-image" class="fotorama-home" data-width="100%" data-height="100%" data-fit="cover" data-autoplay="true" data-nav="none">
       <?php
         /*
           $randonnum = rand(0,count($node_global->field_backgrounds[LANGUAGE_NONE]) -1 );
@@ -141,7 +141,9 @@
   </div>
   <?php endif; ?>
   <script>
-    
+    jQuery(function($){
+     jQuery('.fotorama-home').fotorama({});
+    });
     jQuery('.transparency').css('opacity', 0.95);
     jQuery(function($){        
     var liwidths = [40,128,113,160,153,148,198,71];
@@ -317,7 +319,7 @@ return(n_width);
         var height = $('body').outerHeight() - $('#footer').position().top;
         
 
-        $('#background-image-wrapper').css('height', $('#page-wrapper').height());
+        //$('#background-image-wrapper').css('height', $('#page-wrapper').height());
         $('#background-image').css({position: 'relative', left: 0});       
         $('#background-image img').css({'height': 'auto', 'width': '100%'});
 

@@ -124,7 +124,7 @@
   </div> <!-- /#page, /#page-wrapper -->
   <?php if (drupal_is_front_page()): ?>
   <div id="background-image-wrapper">
-    <div id="background-image" class="fotorama" data-width="100%" data-ratio="1280/760" data-max-width="100%" data-autoplay="true">
+    <div id="background-image" class="fotorama2" data-width="100%" data-ratio="1280/760" data-max-width="100%" data-autoplay="true">
       <?php
         /*
           $randonnum = rand(0,count($node_global->field_backgrounds[LANGUAGE_NONE]) -1 );
