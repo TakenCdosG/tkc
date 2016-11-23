@@ -136,11 +136,22 @@ body.front .node-home-page .widgets_bar{
 }
 
 @media screen and (max-width: 399px) {
+	body.front .node-home-page {
+	    padding-top: 0px;
+	}
 	body.front #main-wrapper {
 		position: initial;
+		margin-bottom: 40px;
+    	margin-top: 30px;
 	}
 	body.front .node-home-page .widgets_bar{
 	    max-width: 290px;
+	}
+	body.front #background-image-wrapper{
+		padding-top: 40px;
+	}
+	body.front #footer{
+		position: relative;
 	}
 }
 
