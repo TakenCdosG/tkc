@@ -136,6 +136,12 @@ body.front .node-home-page .widgets_bar{
 }
 
 @media screen and (max-width: 399px) {
+	body #page  {
+	  min-height: 720px;
+	}
+    body.front #footer  {
+	}
+	   
 	body.front .node-home-page {
 	    padding-top: 0px;
 	}
@@ -150,8 +156,15 @@ body.front .node-home-page .widgets_bar{
 	body.front #background-image-wrapper{
 		padding-top: 40px;
 	}
-	body.front #footer{
-		position: relative;
+	body.front #footer div.mobile{
+	  padding: 15px 10px 0px 10px;
+	}
+    #footer div.mobile div p{
+	    display: inline;
+	    font-size: 14px;
+	}
+	#footer .mobile , #footer div.mobile div p a{
+		font-size: 13px;
 	}
 }
 
