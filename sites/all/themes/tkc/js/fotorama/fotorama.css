@@ -20,6 +20,12 @@
   box-shadow: none !important;
   padding: 0 !important; }
 
+.fotorama__img {
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.25)!important;
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.25)!important;
+    box-shadow: 0 0 5px rgba(0,0,0,0.25)!important;
+}
+
 .fotorama__wrap .fotorama__grab {
   cursor: move;
   cursor: -webkit-grab;
@@ -170,6 +176,15 @@
   .fotorama--fullscreen .fotorama__stage,
   .fotorama--fullscreen .fotorama__nav {
     background: #000; }
+
+.fullscreen, .fotorama__wrap, .fotorama__wrap_style_fade .fotorama__frame {
+    background: -webkit-gradient(radial,50% 50%,0,50% 50%,500,color-stop(0%,#f3f2f1),color-stop(12.8%,#f3f2f1),color-stop(100%,#cacac9));
+    background: -webkit-radial-gradient(#f3f2f1,#f3f2f1 64px,#cacac9 500px);
+    background: -moz-radial-gradient(#f3f2f1,#f3f2f1 64px,#cacac9 500px);
+    background: -o-radial-gradient(#f3f2f1,#f3f2f1 64px,#cacac9 500px);
+    background: radial-gradient(#f3f2f1,#f3f2f1 64px,#cacac9 500px);
+    background-color: #cacac9;
+}
 
 .fotorama__wrap {
   -webkit-text-size-adjust: 100%;

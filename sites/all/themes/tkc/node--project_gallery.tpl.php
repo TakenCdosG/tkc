@@ -20,7 +20,7 @@
       hide($content['comments']);
       hide($content['links']);
     ?>
-<div class="fotor" data-maxwidth="1200" data-maxheight="800" data-width="100%" data-keyboard="true" data-fit="cover" data-thumbs="false">
+<div class="fotor" data-maxwidth="1200" data-maxheight="800" data-width="100%" data-keyboard="true" data-fit="none" data-thumbs="false" data-nav="false">
   <?php
   $images = $node->field_images['und'];
   foreach($images as $image){
