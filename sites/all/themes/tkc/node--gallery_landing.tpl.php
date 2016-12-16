@@ -26,7 +26,7 @@
       foreach ($node->field_categories['und'] as $key => $value){
           
           $nodo = node_load($node->field_categories['und'][$key]['nid']);
-            print "<li class='field'><a href='/node/".drupal_get_path_alias($nodo->nid)."'>";
+            print "<li class='field'><a href='/".drupal_get_path_alias("node/".$nodo->nid)."'>";
                     print "<div class='photo'>";
                     $url = $nodo->field_category_image['und'][0]['uri'];
                     $variables = array('style_name'=>'gallerylanding','path'=>$url);                    
